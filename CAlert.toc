@@ -1,0 +1,7 @@
+## Author: AUser
+## Interface: 40300
+## Title: CAlert
+## Version: 1.0
+## SavedVariablesPerCharacter: CAlert_SavedChanges
+Dbspell.lua
+CAlert.xml

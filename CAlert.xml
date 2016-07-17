@@ -1,0 +1,95 @@
+﻿<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="CAlert.lua" />
+	<Frame name="CAlert" parent="UIParent" toplevel="true" movable="true" hidden="true">
+		<Size>
+			<AbsDimension x="510" y="290" />
+		</Size>
+		<Anchors>
+			<Anchor point="TOPLEFT">
+				<Offset x="294" y="-53" />
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background-Dark" edgeFile="Interface\DialogFrame\UI-DialogBox-Gold-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="12" right="11" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Frames>
+		    <Frame name="DropDownFrame" inherits="UIDropDownMenuTemplate">
+			    <Size>
+					<AbsDimension x="1" y="1" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPRIGHT">
+						<Offset x="-200" y="-20" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+				    <OnLoad>UIDropDownMenu_Initialize(self, DropDownFrame_Initialize);
+					        UIDropDownMenu_SetSelectedID(self, 1);</OnLoad>
+				</Scripts>
+			</Frame>
+			<Button name="closeButton" inherits="UIPanelButtonTemplate" text="Close">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="408" y="-246" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>closeButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="allCheckButton" inherits="UIPanelButtonTemplate" text="Check all">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="25" y="-246" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>allCheckButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="allUnCheckButton" inherits="UIPanelButtonTemplate" text="Uncheck all">
+				<Size>
+					<AbsDimension x="75" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="110" y="-246" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>allUnCheckButton_OnClick();</OnClick>
+				</Scripts>
+			</Button>
+			<ScrollFrame name="AbilitiesScrollFrame" inherits="UIPanelScrollFrameTemplate">
+				<Size>
+					<AbsDimension x="455" y="190" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="16" y="-50" />
+					</Anchor>
+				</Anchors>
+			</ScrollFrame>
+		</Frames>
+		<Scripts>
+			<OnLoad>CAlert_OnLoad(self);
+			        self:RegisterForDrag("LeftButton");</OnLoad>
+			<OnDragStart>self:StartMoving();</OnDragStart>
+			<OnDragStop>self:StopMovingOrSizing();</OnDragStop>
+		</Scripts>
+	</Frame>
+</Ui>
